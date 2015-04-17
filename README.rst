@@ -65,9 +65,10 @@ Usage govplus
  govplus.is_br_cpf_or_cnpj('75.317.134/0001-30')
 
 
-Usage financeplus
+Usage govplus
 -----
 .. code-block:: python
+
  from domplus import financeplus
  # Check if string is a Credcard Number valid.
  # Return True or False
