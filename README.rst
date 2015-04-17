@@ -75,4 +75,4 @@ Usage financeplus
  from domplus import financeplus
  # Check if string is a Credcard Number valid.
  # Return True or False
- is_valid_creditcard("374356783424314")
+ financeplus.is_valid_creditcard("374356783424314")
