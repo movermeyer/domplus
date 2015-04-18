@@ -18,6 +18,10 @@ domplus
 		:target: https://pypi.python.org/pypi//domplus/
 		:alt: Downloads
 
+.. image:: https://badges.gitter.im/Join%20Chat.svg
+		:target: https://gitter.im/eabps/domplus?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge
+		:alt: Chat
+
 domplus is a python package with common functions for commercial applications.
 
 Features
@@ -43,29 +47,30 @@ Usage govplus
  from domplus import govplus
 
  # Check if string is brazilian CPF valid. Return True or False
- govplus.is_valid_br_cpf('03167158590')
+ govplus.is_valid_br_cpf("03167158590")
 
  # OR
- govplus.is_valid_br_cpf('031.671.585-90')
+ govplus.is_valid_br_cpf("031.671.585-90")
 
  # Check if string is brazilian CNPJ valid. Return True or False
- govplus.is_valid_br_cnpj('75317134000130')
+ govplus.is_valid_br_cnpj("75317134000130")
 
  # OR
- govplus.is_valid_br_cnpj('75.317.134/0001-30')
+ govplus.is_valid_br_cnpj("75.317.134/0001-30")
 
  # Check if string is brazilian CPF valid or brazilian CNPJ valid.
- # Return 'cpf', 'cnpj' or False
- govplus.is_br_cpf_or_cnpj('03167158590')
+ # Return "cpf", "cnpj" or False
+ govplus.is_br_cpf_or_cnpj("03167158590")
 
  # OR
- govplus.is_br_cpf_or_cnpj('031.671.585-90')
+ govplus.is_br_cpf_or_cnpj("031.671.585-90")
 
  # OR
- govplus.is_br_cpf_or_cnpj('75317134000130')
+ govplus.is_br_cpf_or_cnpj("75317134000130")
 
  # OR
- govplus.is_br_cpf_or_cnpj('75.317.134/0001-30')
+ govplus.is_br_cpf_or_cnpj("75.317.134/0001-30")
+
 
 Usage financeplus
 -----------------
@@ -73,6 +78,7 @@ Usage financeplus
 .. code-block:: python
 
  from domplus import financeplus
+
  # Check if string is a Credcard Number valid.
  # Return True or False
  financeplus.is_valid_creditcard("374356783424314")
