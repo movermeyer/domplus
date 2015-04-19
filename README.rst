@@ -44,7 +44,7 @@ Usage govplus
 
 .. code-block:: python
 
- from domplus import govplus
+ from domplus.govplus import govplus
 
  # Check if string is brazilian CPF valid. Return True or False
  govplus.is_valid_br_cpf("03167158590")
@@ -76,8 +76,8 @@ Usage financeplus
 -----------------
 
 .. code-block:: python
-
- from domplus import financeplus
+ 
+ from domplus.financeplus import financeplus
 
  # Check if string is a Credcard Number valid.
  # Return True or False
