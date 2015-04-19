@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from nose.tools import assert_equal
-from domplus.domplus import govplus
+from domplus import govplus
 
 
 def is_valid_br_cpf():

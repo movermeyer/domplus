@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from nose.tools import assert_equal
-from domplus.domplus import financeplus
+from domplus import financeplus
 
 
 def test_is_valid_creditcard():
