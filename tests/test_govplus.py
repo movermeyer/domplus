@@ -2,6 +2,34 @@
 from nose.tools import assert_equal
 from domplus import govplus
 
+INVALID_CPF = (
+    '00000000000',
+    '00000000191',
+    '99999999999',
+    '11111111111',
+    '22222222222',
+    '33333333333',
+    '44444444444',
+    '55555555555',
+    '66666666666',
+    '77777777777',
+    '88888888888',
+    '99999999999',
+)
+
+INVALID_CNPJ = (
+    '11111111000191',
+    '00000000000000',
+    '22222222000191',
+    '33333333000191',
+    '44444444000191',
+    '55555555000191',
+    '66666666000191',
+    '77777777000191',
+    '88888888000191',
+    '99999999000191',
+)
+
 
 def is_valid_br_cpf():
     """
@@ -22,6 +50,9 @@ def is_valid_br_cpf():
     yield check_br_cpf_False, '467.368.255/63'  # special character =! . -
     yield check_br_cpf_False, '467368255638'  # > 11 digits
     yield check_br_cpf_False, '4673682556'  # < 11 digits
+
+    for invalid_cpf in INVALID_CPF:
+        yield check_br_cpf_False, invalid_cpf
 
 
 def check_br_cpf_False(cpf):
@@ -52,6 +83,9 @@ def test_is_valid_br_cnpj():
     assert_equal(False, govplus.is_valid_br_cnpj('647468120001631'))
     # if lenth < 14
     assert_equal(False, govplus.is_valid_br_cnpj('6474681200016'))
+
+    for invalid_cnpj in INVALID_CNPJ:
+        yield check_br_cnpj_False, invalid_cnpj
 
 
 def check_br_cnpj_False(cnpj):
