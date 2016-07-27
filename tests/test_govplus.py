@@ -3,31 +3,6 @@ from nose.tools import assert_equal
 from domplus import govplus
 
 
-def is_valid_br_cpf():
-    """
-    Test is_valid_br_cpf
-    """
-    # True
-    assert_equal(True, govplus.is_valid_br_cpf('03167158590'))
-    assert_equal(True, govplus.is_valid_br_cpf('467.368.255-63'))
-
-    # False
-    for i in range(10):
-        text = str(i) * 11
-        yield check_br_cpf_False, text
-
-    yield check_br_cpf_False, '46736825566'  # invalid cpf
-    yield check_br_cpf_False, '03167158590A'  # invalid cpf
-    yield check_br_cpf_False, 46736825563  # no string
-    yield check_br_cpf_False, '467.368.255/63'  # special character =! . -
-    yield check_br_cpf_False, '467368255638'  # > 11 digits
-    yield check_br_cpf_False, '4673682556'  # < 11 digits
-
-
-def check_br_cpf_False(cpf):
-    assert_equal(False, govplus.is_valid_br_cpf(cpf))
-
-
 def test_is_valid_br_cnpj():
     """
     Test is_valid_br_cnpj
