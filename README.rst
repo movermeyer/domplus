@@ -82,3 +82,7 @@ Usage financeplus
  # Check if string is a Credit Card Number valid.
  # Return True or False
  financeplus.is_valid_creditcard("374356783424314")
+
+.. image:: https://badges.gitter.im/Join%20Chat.svg
+   :alt: Join the chat at https://gitter.im/eabps/domplus
+   :target: https://gitter.im/eabps/domplus?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
