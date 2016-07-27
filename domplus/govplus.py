@@ -93,13 +93,9 @@ def is_valid_br_cnpj(cnpj):
     Check if is brazilian CNPJ valid.
     Return True or False
     """
-    # if cnpj is string
-    if not isinstance(cnpj, str):
-        return False
 
-    cnpj = cnpj.replace('.', '')  # extract dots
-    cnpj = cnpj.replace('-', '')  # extract stroke
-    cnpj = cnpj.replace('/', '')  # extract slash
+    # Extract dots, stroke, slash
+    cnpj = re.sub('[.|\-/|/]', '', str(cnpj))
 
     # if does not contain numerical characters
     if not re.match(r'^\d{14}$', cnpj) or cnpj in _INVALID_CNPJ:
@@ -158,9 +154,9 @@ def is_br_cpf_or_cnpj(cpfcnpj):
     If is brazilian CNPJ valid, return 'cnpj'
     Else, return False
     """
-    cpfcnpj = cpfcnpj.replace('.', '')  # extract dots
-    cpfcnpj = cpfcnpj.replace('-', '')  # extract stroke
-    cpfcnpj = cpfcnpj.replace('/', '')  # extract slash
+    # Extract dots, stroke, slash
+    cpfcnpj = re.sub('[.|\-/|/]', '', str(cpfcnpj))
+
 
     if len(cpfcnpj) == 11:
         return 'cpf' if is_valid_br_cpf(cpfcnpj) else False
