@@ -8,12 +8,9 @@ def is_valid_br_cpf(cpf):
     Check if is brazilian CPF valid.
     Return True or False
     """
-    # if cpf is string
-    if not isinstance(cpf, str):
-        return False
 
-    cpf = cpf.replace('.', '')  # extract dots
-    cpf = cpf.replace('-', '')  # extract stroke
+    # Extract dots, stroke
+    cpf = re.sub('[.|-]', '', str(cpf))
 
     if not re.match(r'^\d{11}$', cpf):
         return False
