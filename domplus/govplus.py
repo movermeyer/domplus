@@ -137,8 +137,8 @@ def is_br_cpf_or_cnpj(cpfcnpj):
     cpfcnpj = cpfcnpj.replace('/', '')  # extract slash
 
     if len(cpfcnpj) == 11:
-        return 'cpf' if is_valid_br_cpf(cpfcnpj) is True else False
+        return 'cpf' if is_valid_br_cpf(cpfcnpj) else False
     if len(cpfcnpj) == 14:
-        return 'cnpj' if is_valid_br_cnpj(cpfcnpj) is True else False
+        return 'cnpj' if is_valid_br_cnpj(cpfcnpj) else False
 
     return False
