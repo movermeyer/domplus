@@ -42,3 +42,7 @@ output/*/index.html
 
 # Sphinx
 docs/_build
+.idea/domplus.iml
+.idea/misc.xml
+.idea/modules.xml
+.idea/workspace.xml
