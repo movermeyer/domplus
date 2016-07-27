@@ -2,6 +2,35 @@
 import re
 
 
+_INVALID_CPF = (
+    '00000000000',
+    '00000000191',
+    '99999999999',
+    '11111111111',
+    '22222222222',
+    '33333333333',
+    '44444444444',
+    '55555555555',
+    '66666666666',
+    '77777777777',
+    '88888888888',
+    '99999999999',
+)
+
+_INVALID_CNPJ = (
+    '11111111000191',
+    '00000000000000',
+    '22222222000191',
+    '33333333000191',
+    '44444444000191',
+    '55555555000191',
+    '66666666000191',
+    '77777777000191',
+    '88888888000191',
+    '99999999000191',
+)
+
+
 def is_valid_br_cpf(cpf):
     """
     Accept an string parameter cpf and
@@ -15,7 +44,7 @@ def is_valid_br_cpf(cpf):
     cpf = cpf.replace('.', '')  # extract dots
     cpf = cpf.replace('-', '')  # extract stroke
 
-    if not re.match(r'^\d{11}$', cpf):
+    if not re.match(r'^\d{11}$', cpf) or cpf in _INVALID_CPF:
         return False
 
     # checks if all digits are equal
@@ -76,7 +105,7 @@ def is_valid_br_cnpj(cnpj):
     cnpj = cnpj.replace('/', '')  # extract slash
 
     # if does not contain numerical characters
-    if not re.match(r'^\d{14}$', cnpj):
+    if not re.match(r'^\d{14}$', cnpj) or cnpj in _INVALID_CNPJ:
         return False
 
     # checks if all digits are equal
