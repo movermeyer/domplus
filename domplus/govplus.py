@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import re
 
 
 def is_valid_br_cpf(cpf):
@@ -14,13 +15,7 @@ def is_valid_br_cpf(cpf):
     cpf = cpf.replace('.', '')  # extract dots
     cpf = cpf.replace('-', '')  # extract stroke
 
-    # if does not contain numerical characters
-    for i in cpf:
-        if not i.isdigit():
-            return False
-
-    #  check if length == 11
-    if len(cpf) != 11:
+    if not re.match(r'^\d{11}$', cpf):
         return False
 
     # checks if all digits are equal
@@ -81,12 +76,7 @@ def is_valid_br_cnpj(cnpj):
     cnpj = cnpj.replace('/', '')  # extract slash
 
     # if does not contain numerical characters
-    for i in cnpj:
-        if not i.isdigit():
-            return False
-
-    #  check if length == 14
-    if len(cnpj) != 14:
+    if not re.match(r'^\d{14}$', cnpj):
         return False
 
     # checks if all digits are equal
@@ -146,9 +136,9 @@ def is_br_cpf_or_cnpj(cpfcnpj):
     cpfcnpj = cpfcnpj.replace('-', '')  # extract stroke
     cpfcnpj = cpfcnpj.replace('/', '')  # extract slash
 
-    if len(cpfcnpj) != 11 and len(cpfcnpj) != 14:
-        return False
     if len(cpfcnpj) == 11:
-        return 'cpf' if is_valid_br_cpf(cpfcnpj) is True else False
+        return 'cpf' if is_valid_br_cpf(cpfcnpj) else False
     if len(cpfcnpj) == 14:
-        return 'cnpj' if is_valid_br_cnpj(cpfcnpj) is True else False
+        return 'cnpj' if is_valid_br_cnpj(cpfcnpj) else False
+
+    return False
