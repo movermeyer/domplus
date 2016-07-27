@@ -1,7 +1,62 @@
 # -*- coding: utf-8 -*-
 from nose.tools import assert_equal
 from domplus import govplus
+import unittest
 
+INVALID_CPF = (
+    '00000000000',
+    '00000000191',
+    '99999999999',
+    '11111111111',
+    '22222222222',
+    '33333333333',
+    '44444444444',
+    '55555555555',
+    '66666666666',
+    '77777777777',
+    '88888888888',
+    '99999999999',
+    '46736825566',
+    '03167158590A',
+    '467.368.255/63',
+    '467368255638',
+    '4673682556'
+)
+
+INVALID_CNPJ = (
+    '11111111000191',
+    '00000000000000',
+    '22222222000191',
+    '33333333000191',
+    '44444444000191',
+    '55555555000191',
+    '66666666000191',
+    '77777777000191',
+    '88888888000191',
+    '99999999000191',
+)
+
+
+class TestGovplus(unittest.TestCase):
+
+    def setUp(self):
+        self.cpfs_valid = ['03167158590', '467.368.255-63', '467368255-63']
+        self.cpfs_invalid = INVALID_CPF
+
+    def test_valid_br_cpf_type_int(self):
+        self.assertTrue(govplus.is_valid_br_cpf(46736825563), "Valid cpf type int how success!")
+
+    def test_valid_br_cpf(self):
+        self.assertTrue(all(govplus.is_valid_br_cpf(cpf) for cpf in self.cpfs_valid), "All Cpfs Valid how success!")
+
+    def test_invalid_br_cpf(self):
+        self.assertTrue(all(True if govplus.is_valid_br_cpf(cpf) is False else False for cpf in self.cpfs_invalid), "Cpfs Invalids")
+
+    def tearDown(self):
+        pass
+
+if __name__ == '__main__':
+    unittest.main()
 
 def test_is_valid_br_cnpj():
     """
@@ -27,6 +82,9 @@ def test_is_valid_br_cnpj():
     assert_equal(False, govplus.is_valid_br_cnpj('647468120001631'))
     # if lenth < 14
     assert_equal(False, govplus.is_valid_br_cnpj('6474681200016'))
+
+    for invalid_cnpj in INVALID_CNPJ:
+        yield check_br_cnpj_False, invalid_cnpj
 
 
 def check_br_cnpj_False(cnpj):
