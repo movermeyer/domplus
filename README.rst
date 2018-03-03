@@ -10,11 +10,11 @@ domplus
 		:target: https://landscape.io/github/eabps/domplus/master
 		:alt: Code Helth
 
-.. image:: https://pypip.in/v/domplus/badge.svg
+.. image:: https://img.shields.io/pypi/v/domplus.svg
 		:target: https://pypi.python.org/pypi//domplus/
 		:alt: Latest PyPI version
 
-.. image:: https://pypip.in/d/domplus/badge.svg
+.. image:: https://img.shields.io/pypi/dm/domplus.svg
 		:target: https://pypi.python.org/pypi//domplus/
 		:alt: Downloads
 
